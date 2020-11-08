@@ -1,0 +1,1 @@
+char* Posfix (char *Inf);
