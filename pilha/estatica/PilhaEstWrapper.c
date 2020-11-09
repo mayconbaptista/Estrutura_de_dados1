@@ -3,75 +3,90 @@
 #include "bibliFilaEst.h"
 #include "PilhaEstWrapper.h"
 
-Stack* Criat_Stak (void)
+struct Pilha
+{
+    struct Listas *Li;
+};
+
+Stack* Criat_Stack_est (void)
 {
     Stack *Pi;
-    Pi = Criate_List();
+    Pi = (Stack*) malloc (sizeof(Stack));
+    if(Pi != NULL)
+    {
+        Pi->Li = Criate_List();
+            if(Pi->Li == NULL)
+                free(Pi);
+    }
     return Pi;
 }
 
-void Free_Stak (Stack *Pi)
+void Free_Stack_est (Stack *Pi)
 {
-    Release_List(Pi);
+    Release_List(Pi->Li);
+    free(Pi);
 }
 
 // 1)
-int Push_Stak (Stack *Pi, struct Students Al)
+int Push_Stack_est (Stack *Pi, struct Students Al)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return Insert_List_Final(Pi, Al);
+        return Insert_List_Final(Pi->Li, Al);
 }
 
 // 2)
-int Pop_Stack (Stack *Pi)
+int Pop_Stack_est (Stack *Pi)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return Remove_List_Final(Pi);
+        return Remove_List_Final(Pi->Li);
 }
 
 // 3
-int Top_Stack (Stack *Pi, struct Students *Al)
+int Top_Stack_est (Stack *Pi, struct Students *Al)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return List_back(Pi, Al);
+        return List_back(Pi->Li, Al);
 }
 
 // 4
-int Size_Stak (Stack *Pi)
+int Size_Stack_est (Stack *Pi)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return Size_List(Pi);
+        return Size_List(Pi->Li);
 }
 
 // 5
-int Empyt_stack (Stack *Pi)
+int Empyt_Stack_est (Stack *Pi)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return Size_Empty(Pi);
+        return Size_Empty(Pi->Li);
 }
 
 // 6
-int Full_Stack (Stack *Pi)
+int Full_Stack_est (Stack *Pi)
 {
     if(Pi == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     else
-        return Size_Full(Pi);
+        return Size_Full(Pi->Li);
 }
 
 // 7
-int Print_Stack (Stack *Pi)
+int Print_Stack_est (Stack *Pi)
 {
-    return Print_List(Pi);
+    if(Pi == NULL)
+        return INVALID_NULL_POINTER;
+    else
+        return Print_List(Pi->Li);
 }
 

@@ -1,8 +1,6 @@
-#ifndef list_h
+#ifndef BIBLIFILAEST_H
+#define BIBLIFILAEST_H
 #define MAX 100
-#define SUCESS 0
-#define INVALID_NULL_POINTER -1
-#define OUT_NOT_RANGE -2
 #include "../encadeada/Students.h"
 // onde ele achar a variavel max ele troca poelo valor 100;
 

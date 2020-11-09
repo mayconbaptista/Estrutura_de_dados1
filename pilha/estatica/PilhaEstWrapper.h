@@ -1,29 +1,32 @@
+#ifndef PILHAESTWRAPPER_H
+#define PILHAESTWRAPPER_H
 #include "../encadeada/Students.h"
 
-typedef struct Listas Stack;
+typedef struct Pilha Stack;
 
-Stack* Criat_Stak (void);
+Stack* Criat_Stack_est (void);
 
-void Free_Stak (Stack *Pi);
+void Free_Stack_est (Stack *Pi);
 
 // 1)
-int Push_Stak (Stack *Pi, struct Students Al);
+int Push_Stack_est (Stack *Pi, struct Students Al);
 
 // 2)
-int Pop_Stack (Stack *Pi);
+int Pop_Stack_est (Stack *Pi);
 
 // 3)
-int Top_Stack (Stack *Pi, struct Students *Al);
+int Top_Stack_est (Stack *Pi, struct Students *Al);
 
 // 4)
-int Size_Stak (Stack *Pi);
+int Size_Stack_est (Stack *Pi);
 
 // 5)
-int Empyt_stack (Stack *Pi);
+int Empyt_Stack_est (Stack *Pi);
 
 // 6
-int Full_Stack (Stack *Pi);
+int Full_Stack_est (Stack *Pi);
 
 // 7)
-int Print_Stack (Stack *Pi);
+int Print_Stack_est (Stack *Pi);
 
+#endif

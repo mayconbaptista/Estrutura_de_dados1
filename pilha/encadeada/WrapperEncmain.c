@@ -12,8 +12,8 @@ int main (void)
 
     struct Students Al;
 
-    Stak *Pi;
-    Pi = Criat_Stak2();
+    Stack *Pi;
+    Pi = Criat_Stack_enc();
 
     do
     {
@@ -22,7 +22,7 @@ int main (void)
         {
         case 1:
             Scan_Al(&Al);
-            res = Insert_Stak2(Pi, Al);
+            res = Push_Stack_enc(Pi, Al);
             if(res == SUCESS)
                 printf("Operação finalizada com sucesso!\n");
             else
@@ -30,7 +30,7 @@ int main (void)
             break;
 
         case 2:
-            res = Erase_Stak2 (Pi);
+            res = Pop_Stack_enc (Pi);
             if(res == SUCESS)
                 printf("Operação finalizada com sucesso!\n");
             else
@@ -38,7 +38,7 @@ int main (void)
             break;
 
         case 3:
-            res = Stak_Back2 (Pi, &Al);
+            res = Stack_Top_enc (Pi, &Al);
             if(res == SUCESS){
                 printf("Operação finalizada com sucesso!\n");
                 Print_Al(Al);
@@ -47,7 +47,7 @@ int main (void)
                 printf("Erro! cod = %d\n",res);
             break;
         case 4:
-            res = Size_Stak2 (Pi);
+            res = Size_Stack_enc (Pi);
             if(res == INVALID_NULL_POINTER)
                 printf("Erro! cod = %d\n",res);
             else
@@ -55,7 +55,7 @@ int main (void)
             break;
 
         case 5:
-            res = Empyt_Stack (Pi);
+            res = Empyt_Stack_enc (Pi);
             if(res == SUCESS)
                 printf("True, Pilha vazia!.\n");
             else if(res == OUT_NOT_RANGE)
@@ -63,10 +63,10 @@ int main (void)
             break;
                 
         case 6:
-            Print_Stak2(Pi);
+            Print_Stack_enc(Pi);
             break;
         case 0:
-            Free_Stak2 (Pi);
+            Free_Stack_enc (Pi);
             break;
         default:
             printf("Entre com uma opcão valida!\n");

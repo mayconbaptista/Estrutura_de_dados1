@@ -13,7 +13,7 @@ int main (void)
     struct Students Al;
 
     Stack *Pi;
-    Pi = Criat_Stak();
+    Pi = Criat_Stack_est();
 
     do
     {
@@ -22,23 +22,23 @@ int main (void)
         {
         case 1:
             Scan_Al(&Al);
-            res = Push_Stak(Pi, Al);
-            if(res == 0)
+            res = Push_Stack_est(Pi, Al);
+            if(res == SUCESS)
                 printf("Operação finalizada com sucesso!\n");
             else
                 printf("Erro! cod = %d\n",res);
             break;
 
         case 2:
-            res = Pop_Stack(Pi);
-            if(res == 0)
+            res = Pop_Stack_est(Pi);
+            if(res == SUCESS)
                 printf("Operação finalizada com sucesso!\n");
             else
                 printf("Erro! cod = %d\n",res);
             break;
         case 3:
-            res = Top_Stack(Pi, &Al);
-            if(res == 0){
+            res = Top_Stack_est(Pi, &Al);
+            if(res == SUCESS){
                 printf("Operação finalizada com sucesso!\n");
                 Print_Al(Al);
             }
@@ -46,35 +46,35 @@ int main (void)
                 printf("Erro! cod = %d\n",res);
             break;
         case 4:
-            res = Size_Stak(Pi);
-            if(res == -1)
+            res = Size_Stack_est(Pi);
+            if(res == INVALID_NULL_POINTER)
                 printf("Erro! cod = %d\n",res);
             else
                 printf("O tamanho atual da lista e %d elementos!\n",res);
             break;
         case 5:
-            res = Full_Stack(Pi);
-            if(res == -2)
+            res = Full_Stack_est(Pi);
+            if(res == SUCESS)
                 printf("True, pilha estatica cheia\n!\n");
-            else if(res == 0)
+            else if(res == OUT_NOT_RANGE)
                 printf("False, ainda possui espaço!\n");
             else
                 printf("Erro! cod = %d\n",res);
             break;
         case 6:
-            res = Empyt_stack(Pi);
-            if(res == 0)
+            res = Empyt_Stack_est(Pi);
+            if(res == SUCESS)
                 printf("True, pilha vazia!\n");
-            else if(res == -2)
+            else if(res == OUT_NOT_RANGE)
                 printf("False, pilha nao esta vazia!\n");
             else
                 printf("Erro! cod = %d\n",res);
             break;
         case 7:
-            Print_Stack(Pi);
+            Print_Stack_est(Pi);
             break;
         case 0:
-            Free_Stak(Pi);
+            Free_Stack_est(Pi);
             break;
         default:
             printf("Entre com uma opcão valida!\n");

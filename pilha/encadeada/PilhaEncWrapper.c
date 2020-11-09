@@ -2,72 +2,74 @@
 #include <stdio.h>
 #include "auxlista.h"
 #include "PilhaEncWrapper.h"
-#include "Students.h"
 
-Stak* Criat_Stak2 (void)
+struct Pilha
 {
-    Stak* Pi;
-    Pi = List_Criate();
+    struct Lists *Li;
+};
+
+Stack* Criat_Stack_enc (void)
+{
+    Stack* Pi;
+    Pi = (Stack*) malloc (sizeof(Stack));
+    if(Pi != NULL)
+    {
+        Pi->Li = List_Criate();
+        if(Pi->Li == NULL)
+            free(Pi);
+    }
     return Pi;
 }
 
-void Free_Stak2 (Stak *Pi)
+void Free_Stack_enc (Stack *Pi)
 {
-    List_Free(Pi);
+    List_Free(Pi->Li);
+    free(Pi);
 };
 
 
-int Insert_Stak2 (Stak *Pi, struct Students Al)
-{
-    int res;
-    res = List_Push_Back(Pi, Al);
-    if(res == INVALID_NULL_POINTER)
-        return INVALID_NULL_POINTER;
-    else if(res == OUT_OF_MEMORY)
-        return OUT_OF_MEMORY;
-    else
-        SUCESS;
-}
-
-int Erase_Stak2 (Stak *Pi)
-{
-    int res;
-    res = List_pop_Back(Pi);
-    if(res == INVALID_NULL_POINTER)
-        return INVALID_NULL_POINTER;
-    else if(res == ELEM_NOT_FOUND)
-        return ELEM_NOT_FOUND;
-    else 
-        return SUCESS;
-}
-
-int Stak_Back2 (Stak *Pi, struct Students *Al)
-{
-    int res;
-    res = List_Back(Pi, Al);
-    if(res == INVALID_NULL_POINTER)
-        return INVALID_NULL_POINTER;
-    else if(res == ELEM_NOT_FOUND)
-        return ELEM_NOT_FOUND;
-    else
-        return SUCESS;
-}
-
-int Size_Stak2 (Stak *Pi)
-{
-    return Size_List(Pi);
-}
-
-void Print_Stak2 (Stak *Pi)
-{
-    if(Pi != NULL)
-        Print_List(Pi);
-}
-
-int Empyt_Stack (Stak *Pi)
+int Push_Stack_enc (Stack *Pi, struct Students Al)
 {
     if(Pi == NULL)
         return INVALID_NULL_POINTER;
     else
-        return Empty_List(Pi);
+        return List_Push_Back(Pi->Li, Al);
+}
+
+int Pop_Stack_enc (Stack *Pi)
+{
+    if(Pi == NULL)
+        return INVALID_NULL_POINTER;
+    else
+        return List_pop_Back(Pi->Li);
+}
+
+int Stack_Top_enc (Stack *Pi, struct Students *Al)
+{
+    if(Pi == NULL)
+        return INVALID_NULL_POINTER;
+    else
+        return List_Back(Pi->Li, Al);
+}
+
+int Size_Stack_enc (Stack *Pi)
+{
+    if(Pi == NULL)
+        return INVALID_NULL_POINTER;
+    else
+        return Size_List(Pi->Li);
+}
+
+void Print_Stack_enc (Stack *Pi)
+{
+    if(Pi != NULL)
+        Print_List(Pi->Li);
+}
+
+int Empyt_Stack_enc (Stack *Pi)
+{
+    if(Pi == NULL)
+        return INVALID_NULL_POINTER;
+    else
+        return Empty_List(Pi->Li);
 }
