@@ -39,12 +39,42 @@ exe6:
 	@gcc -o main6.exe ./pilha/exe6/expre6main.o ./pilha/exe6/PilhaEstint.o ./pilha/exe5/Posf.o ./pilha/exe3/TadPilhaSeq.o
 	@./main6.exe
 
+filaexe1:
+	@gcc -c ./fila/filaexe1/FilaWrapperEnc.c -o ./fila/filaexe1/FilaWrapperEnc.o
+	@gcc -c ./fila/filaexe1/auxiliar.c -o ./fila/filaexe1/auxiliar.o
+	@gcc -c ./fila/filaexe1/FilaWrapperEncmain.c -o ./fila/filaexe1/FilaWrapperEncmain.o
+	@gcc -o filaexe1.exe ./fila/filaexe1/FilaWrapperEnc.o ./pilha/encadeada/auxlista.o ./fila/filaexe1/FilaWrapperEncmain.o
+	@./filaexe1.exe
+
+filaexe2:
+	@gcc -c ./fila/filaexe2/FilaEncexe2.c -o ./fila/filaexe2/FilaEncexe2.o
+	@gcc -c ./fila/filaexe2/FilaEncmainexe2.c -o ./fila/filaexe2/FilaEncmainexe2.o
+	@gcc -o filaexe2.exe ./fila/filaexe2/FilaEncmainexe2.o ./fila/filaexe2/FilaEncexe2.o
+	@./filaexe2.exe
+
+filaexe3:
+	@gcc -c ./fila/filaexe3/TadFilaVaria.c -o ./fila/filaexe3/TadFilaVaria.o
+	@gcc -c ./fila/filaexe3/TadfilaVariamain.c -o ./fila/filaexe3/TadfilaVariamain.o
+	@gcc -o filaexe3.exe ./fila/filaexe3/TadFilaVaria.o ./fila/filaexe3/TadfilaVariamain.o
+	@./filaexe3.exe
+
+listacir:
+	@gcc -c ./fila/Listacircular/ListaEncCir.c -o ./fila/Listacircular/ListaEncCir.o
+	@gcc -c ./fila/Listacircular/mainListaCirc.c -o ./fila/Listacircular/mainListaCirc.o
+	@gcc -o listacir.exe ./fila/Listacircular/ListaEncCir.o ./fila/Listacircular/mainListaCirc.o
+	@./listacir.exe
+
+trab:
+	@gcc -c ./trabfinal/main.c -o ./trabfinal/main.o
+	@gcc -c ./trabfinal/auxmatriz.c -o ./trabfinal/auxmatriz.o
+	@gcc -o imm ./trabfinal/main.o ./trabfinal/auxmatriz.o
+	
 
 clean:
-	@rm ./pilha/exe6/*.o
-	@rm ./pilha/exe5/*.o
-	@rm ./pilha/exe4/*.o
-	@rm ./pilha/exe3/*.o
-	@rm ./pilha/encadeada/*.o
-	@rm ./pilha/estatica/*.o
-	@rm ./*.exe
+	@rm ./fila/filaexe1/*.o
+	@rm ./fila/filaexe2/*.o
+	@rm ./fila/filaexe3/*.o
+	@rm ./fila/Listacircular/*.o
+	@rm *.exe
+	
+	
